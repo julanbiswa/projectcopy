@@ -271,7 +271,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
                 $availability_class = $row['availability'] === 'Available' ? 'available' : 'not-available';
                 ?>
                 <div class="card">
-                    <img src="<?= htmlspecialchars($row['image_path']) ?>" alt="<?= htmlspecialchars($row['name']) ?>" />
+                    <img 
+    src="<?= htmlspecialchars($row['image_path']) ?>" 
+    alt="<?= htmlspecialchars($row['name']) ?>" 
+    class="equipment-img"
+    data-name="<?= htmlspecialchars($row['name']) ?>"
+    data-availability="<?= htmlspecialchars($row['availability']) ?>"
+    data-description="<?= htmlspecialchars($row['description']) ?>"
+    data-image="<?= htmlspecialchars($row['image_path']) ?>"
+/>
                     <div class="card-content">
                         <h3><?= htmlspecialchars($row['name']) ?></h3>
                         <div class="available-rating">
