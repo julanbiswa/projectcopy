@@ -185,3 +185,21 @@ document.getElementById('close-detail').addEventListener('click', () => {
     document.getElementById('equipment-detail').classList.add('hidden');
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    // Show equipment detail modal on image click
+    document.querySelectorAll('.equipment-img').forEach(function(img) {
+        img.addEventListener('click', function() {
+            document.getElementById('equipment-detail').classList.remove('hidden');
+            document.getElementById('detail-image').src = this.dataset.image;
+            document.getElementById('detail-name').textContent = this.dataset.name;
+            document.getElementById('detail-availability').textContent = "Availability: " + this.dataset.availability;
+            document.getElementById('detail-description').textContent = this.dataset.description;
+        });
+    });
+
+    // Close modal on cancel button click
+    document.getElementById('close-detail').addEventListener('click', function() {
+        document.getElementById('equipment-detail').classList.add('hidden');
+    });
+});
+
